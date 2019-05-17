@@ -1,0 +1,27 @@
+﻿--------------不存在的文件/目录--------------
+(Description) C:\product\INE_config\product\product\copy\product\etc\hwpg\aps_config.xml is missing. 
+(Description) C:\version\INE_version\INE-L21_other_demo\version\copy\version\special_cust\INE-L21\other\demo\hwpg\aps_config.xml is missing. 
+(Description) C:\version\INE_version\INE-L22_other_demo\version\copy\version\special_cust\INE-L22\other\demo\hwpg\aps_config.xml is missing. 
+(Description) C:\product\MAR_config_resource\param\product\etc\hwpg\aps_config.xml is missing. 
+(Description) C:\product\product\copy\product\hw_oem\DUK-TL30\prop\local.prop is missing. 
+(Description) C:\product\etc\prop\local.prop is missing. 
+(Description) C:\region_comm_oversea\version\copy\version\region_comm\oversea\prop\local.prop is missing. 
+
+---------------不存在的关键词---------------
+(Description) "<item> <enable>false</enable> </item> </config>" is not in C:\product\etc\xml\iaware_config_cust.xml
+(Description) "<duration_ms>1000</duration_ms>" is not in C:\product\etc\xml\iaware_config_cust.xml
+(Description) "<little_cpu0_min_freq>1844000</little_cpu0_min_freq>" is not in C:\product\etc\xml\iaware_config_cust.xml
+(Description) "<little_cpu0_max_freq>1844000</little_cpu0_max_freq>" is not in C:\product\etc\xml\iaware_config_cust.xml
+(Description) "<big_cpu0_min_freq>2093000</big_cpu0_min_freq>" is not in C:\product\etc\xml\iaware_config_cust.xml
+(Description) "<big_cpu0_max_freq>2362000</big_cpu0_max_freq>" is not in C:\product\etc\xml\iaware_config_cust.xml
+(Description) "<gpu_min_freq>550000000</gpu_min_freq>" is not in C:\product\etc\xml\iaware_config_cust.xml
+(Description) "<gpu_max_freq>767000000</gpu_max_freq>" is not in C:\product\etc\xml\iaware_config_cust.xml
+(Description) "<ddr_min_freq>1245000000</ddr_min_freq>" is not in C:\product\etc\xml\iaware_config_cust.xml
+(Description) "<ipa_power>4500</ipa_power>" is not in C:\product\etc\xml\iaware_config_cust.xml
+(Description) "<vip>40</vip>" is not in C:\product\etc\xml\iaware_config_cust.xml
+(Description) "<top-app>40</top-app>" is not in C:\product\etc\xml\iaware_config_cust.xml
+(Description) "<foreground>40</foreground>" is not in C:\product\etc\xml\iaware_config_cust.xml
+(Description) "<boost>40</boost>" is not in C:\product\etc\xml\iaware_config_cust.xml
+
+---------------关键词---------------
+(Description) "<config name="enable_pg_freq">" is in C:\product\etc\xml\iaware_config_cust.xml
