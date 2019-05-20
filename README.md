@@ -1,13 +1,13 @@
 # json_for_directory
 
 ## json schema
-This new schema is completely different as it doesn't try to replicate the tree of the file system like before. Instead, now there is a "check" object which contains all the files to be checked for and their respective keywords. With a much simpler schema, I am guessing this would be a lot easier to use and the programme would be less likely to crash. 
+This new schema is completely different as it doesn't try to replicate the tree of the file system like before. Instead, now there is a "check" object which contains all the files to be checked for, their description and their respective keywords. With a much simpler schema, I am guessing this would be a lot easier to use and the programme would be less likely to crash. 
 
 ## email
-The function in this module now takes in an extra object emailCred, meant to store email credentials. Previously it was done with environment varialbes.
+The function in this module now takes in an extra object emailCred, meant to store email credentials. Previously it was done with environment varialbes. Other than that, the text and attachments are largely the same. 
 
 ## traverse
-This module is largley the same as before. 3 lines of code was added to accomodate the way file pahts are resolved on windows.
+This module is largley the same as before. 3 lines of code was added to accomodate the way file paths are resolved on windows.
 
 ## UserInput
 1. The file path to the json file will be asked for, this is where all ninformation the keywords and files to be looked for will be found. 
