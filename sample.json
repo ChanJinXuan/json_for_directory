@@ -1,5 +1,10 @@
 {
 	"results":"./results",
+	"host":"host_name",
+	"port":"port",
+	"senderAddress":"sender@send.com",
+	"username":"username",
+	"password":"password",
 	"watchers":[
 		"chan.jin.xuan@huawei.com"
 		],
