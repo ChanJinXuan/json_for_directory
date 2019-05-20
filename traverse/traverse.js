@@ -102,7 +102,8 @@ async function runCheck(check, jsonFile, resultsFile, recepients, scanResults,em
                         }
                     }
                 }).catch(function (err) {
-                    //this catch block should not be necessary. 
+                    //this catch block should not be necessary because only files that can be found are added
+                    //to the array by walk.js
                     console.log(err);
                     missingFiles.push("("+description+") "+filename + " is missing. ");
                 });
