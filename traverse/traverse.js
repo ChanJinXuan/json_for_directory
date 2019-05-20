@@ -72,6 +72,7 @@ async function runCheck(check, jsonFile, resultsFile, recepients, scanResults,em
         //声明变量
         var relPath = oneFile["relPath"];
         var keywords = oneFile["keywords"];
+        var description = oneFile["description"];
         var filename = path.resolve(jsonFile, relPath);
         var foundFileFlag = false;
 
@@ -93,21 +94,22 @@ async function runCheck(check, jsonFile, resultsFile, recepients, scanResults,em
                     for (var oneKeyword of keywords) {
                         if (stringIn.includes(oneKeyword)) {
                             //  console.log("in" + oneKeyword);
-                            keywordsResults.push("\"" + oneKeyword + "\"" + " 有在 " + filename);
+                            keywordsResults.push("("+description+") "+"\"" + oneKeyword + "\"" + " 有在 " + filename);
                         }
                         else {
                             // console.log("missing" + oneKeyword);
-                            keywordsMissingResults.push("\"" + oneKeyword + "\"" + " 不存在 " + filename);
+                            keywordsMissingResults.push("("+description+") "+"\"" + oneKeyword + "\"" + " 不存在 " + filename);
                         }
                     }
                 }).catch(function (err) {
+                    //this catch block should not be necessary. 
                     console.log(err);
-                    missingFiles.push(filename + " is missing. ");
+                    missingFiles.push("("+description+") "+filename + " is missing. ");
                 });
             }
         }
         if (!foundFileFlag) {
-            missingFiles.push(filename + " is missing. ");
+            missingFiles.push("("+description+") "+filename + " is missing. ");
         }
     }
 
