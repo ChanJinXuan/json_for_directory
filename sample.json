@@ -11,48 +11,56 @@
 	"check":[
 		{
 			"relPath":"/product/etc/xml/iaware_config_cust.xml",
+			"description":"wot?",
 			"keywords":[
 				"<config name=\"enable_pg_freq\">","<item> <enable>false</enable> </item> </config>", "<duration_ms>1000</duration_ms>", "<little_cpu0_min_freq>1844000</little_cpu0_min_freq>", "<little_cpu0_max_freq>1844000</little_cpu0_max_freq>", "<big_cpu0_min_freq>2093000</big_cpu0_min_freq>", "<big_cpu0_max_freq>2362000</big_cpu0_max_freq>", "<gpu_min_freq>550000000</gpu_min_freq>", "<gpu_max_freq>767000000</gpu_max_freq>", "<ddr_min_freq>1245000000</ddr_min_freq>", "<ipa_power>4500</ipa_power>", "<vip>40</vip>", "<top-app>40</top-app>", "<foreground>40</foreground>", "<boost>40</boost>"
 			]
 		},
 		{
 			"relPath":"/product/INE_config/product/product/copy/product/etc/hwpg/aps_config.xml",
+			"description":"wot?",
 			"keywords":[
 				"<aps name=\"com.tencent.tmgp.tstl\" type=\"9998\" min=\"60\" r_min=\"0.75\"/>"
 			]
 		},
 		{
 			"relPath":"/version/INE_version/INE-L21_other_demo/version/copy/version/special_cust/INE-L21/other/demo/hwpg/aps_config.xml",
+			"description":"wot?",
 			"keywords":[
 				"<aps name=\"com.tencent.tmgp.tstl\" type=\"9998\" min=\"60\" r_min=\"0.75\"/>"
 			]
 		},
 		{
 			"relPath":"/version/INE_version/INE-L22_other_demo/version/copy/version/special_cust/INE-L22/other/demo/hwpg/aps_config.xml",
+			"description":"wot?",
 			"keywords":[
 				"<aps name=\"com.tencent.tmgp.tstl\" type=\"9998\" min=\"60\" r_min=\"0.75\"/>"
 			]
 		},
 		{
 			"relPath":"/product/MAR_config_resource/param/product/etc/hwpg/aps_config.xml",
+			"description":"wot?",
 			"keywords":[
 				"<aps name=\"com.tencent.tmgp.tstl\" type=\"9998\" min=\"60\" r_min=\"0.75\"/>"
 			]
 		},
 		{
 			"relPath":"/product/product/copy/product/hw_oem/DUK-TL30/prop/local.prop",
+			"description":"wot?",
 			"keywords":[
 				"######## 8. POWER TEAM BEGIN", "ro.config.hw_extr_close_switch=data;wifi;4g", "######## 8. POWER TEAM END"
 			]
 		},
 		{
 			"relPath":"/product/etc/prop/local.prop",
+			"description":"wot?",
 			"keywords":[
 				"ro.config.hw_power_saving"
 			]
 		},
 		{
 			"relPath":"/region_comm_oversea/version/copy/version/region_comm/oversea/prop/local.prop",
+			"description":"wot?",
 			"keywords":[
 				"DTS2017020602494","DTS2017020602465", "DTS2017072504753"
 			]
