@@ -43,58 +43,74 @@ function traverse_with_json(jsonFile, startingDirectory) {
         var check = obj["check"];
         var resultsFile = obj["results"];
         var recepients = obj["watchers"];
+        var host = obj["host"]; 
+        var port = obj["port"]; 
+        var senderAddress = obj["senderAddress"]; 
+        var username = obj["username"]; 
+        var password = obj["password"];
+        
+        var emailCred = {
+            host:host,
+            port:port,
+            senderAddress:senderAddress,
+            username:username,
+            password:password,
+        };
 
         walk(startingDirectory, function (err, scanResults) {
             if (err) {
                 //end program 停止
                 throw err;
             }
-            runCheck(check, jsonDir, resultsFile, recepients, scanResults);
+            runCheck(check, jsonDir, resultsFile, recepients, scanResults,emailCred);
         });
     });
 }
 
-async function runCheck(check, jsonFile, resultsFile, recepients, scanResults) {
+async function runCheck(check, jsonFile, resultsFile, recepients, scanResults,emailCred) {
     for (var oneFile of check) {
         //声明变量
         var relPath = oneFile["relPath"];
         var keywords = oneFile["keywords"];
+        var description = oneFile["description"];
         var filename = path.resolve(jsonFile, relPath);
         var foundFileFlag = false;
 
         for (var result of scanResults) {
-            if (!result){
+            if (!result) {
                 //quick fix to skip loop if result is undefined 如果结果未定义，快速修复跳过循环
                 //Root cause is in walk, some undefined variable might get added to list 根本原因是在walk中，一些未定义的变量可能会被添加到列表中
                 continue;
             }
 
             //replace forward slash with backslash 用反斜杠替换正斜杠
-			var windowsRelPath = relPath.replace(/\//g,'\\');
-			//console.log(windowsRelPath);
+            var windowsRelPath = relPath.replace(/\//g, '\\');
+            //console.log(windowsRelPath);
 
             if (result.endsWith(relPath) || result.endsWith(windowsRelPath)) {
                 //found the file 找到文件后
-                foundFileFlag=true;
+                foundFileFlag = true;
                 await findKeywords(result).then(function (stringIn) {
                     for (var oneKeyword of keywords) {
                         if (stringIn.includes(oneKeyword)) {
-                          //  console.log("in" + oneKeyword);
-                            keywordsResults.push("\"" + oneKeyword + "\"" + " 有在 " + filename);
+                            //  console.log("in" + oneKeyword);
+                            keywordsResults.push("("+description+") "+"\"" + oneKeyword + "\"" + " 有在 " + filename);
                         }
                         else {
-                           // console.log("missing" + oneKeyword);
-                            keywordsMissingResults.push("\"" + oneKeyword + "\"" + " 不存在 " + filename);
+                            // console.log("missing" + oneKeyword);
+                            keywordsMissingResults.push("("+description+") "+"\"" + oneKeyword + "\"" + " 不存在 " + filename);
                         }
                     }
                 }).catch(function (err) {
+                    //this catch block should not be necessary because only files that can be found are added
+                    //to the array by walk.js
                     console.log(err);
-                    missingFiles.push(filename + " is missing. ");
+                    missingFiles.push("("+description+") "+filename + " is missing. ");
                 });
             }
         }
-        if (!foundFileFlag){
-            missingFiles.push(filename+" is missing. ");
+        if (!foundFileFlag) {
+            missingFiles.push("("+description+") "+filename + " is missing. ");
         }
     }
 
@@ -108,7 +124,7 @@ async function runCheck(check, jsonFile, resultsFile, recepients, scanResults) {
 
 
     //use \r\n for new lines in Windows
-			//以下是来写丢失的文件和错误的关键字
+    //以下是来写丢失的文件和错误的关键字
     var resultsString = "--------------不存在的文件/目录--------------\r\n";
     for (var oneFile of missingFiles) {
         resultsString += oneFile + "\r\n";
@@ -146,7 +162,7 @@ async function runCheck(check, jsonFile, resultsFile, recepients, scanResults) {
         }
     ];
 
-//    sendMail(standardMessage, attachments, recepients);
+    sendMail(standardMessage, attachments, recepients, emailCred);
 }
 
 async function findKeywords(filename) {
